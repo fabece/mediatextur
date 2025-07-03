@@ -61,7 +61,7 @@ jobs:
               --env-file /home/deploy/.env.production \
               -e PORT=${{ env.PORT }} \
               -e NODE_ENV=${{ env.NODE_ENV }} \
-              ${{ env.IMAGE_TAG }}
+              ${{ env.CONTAINER_NAME }}:latest
 
             docker image prune -f
             rm -f /home/deploy/${{ env.CONTAINER_NAME }}.tar.gz

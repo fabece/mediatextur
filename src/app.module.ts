@@ -2,7 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigurationMapper } from './app/configuration/configuration.mapper';
 import { ConfigurationValidation } from './app/configuration/configuration.validation';
-import { HealthModule } from './health/health.module';
+import { HealthController } from './app/controllers/health.controller';
+import { AppController } from './app/controllers/app.controller';
+import { ApiController } from './app/controllers/api.controller';
 
 @Module({
     imports: [
@@ -13,9 +15,8 @@ import { HealthModule } from './health/health.module';
             isGlobal: true,
             validationSchema: ConfigurationValidation,
         }),
-        HealthModule,
     ],
-    controllers: [],
+    controllers: [AppController, ApiController, HealthController],
     providers: [],
 })
 export class AppModule {}

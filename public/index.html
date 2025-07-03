@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediatextur Content Factory</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="container" id="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <rect x="5" y="5" width="10" height="10" fill="#8BC34A"/>
+                    <rect x="15" y="5" width="10" height="10" fill="#4CAF50"/>
+                    <rect x="25" y="5" width="10" height="10" fill="#388E3C"/>
+                    <rect x="5" y="15" width="10" height="10" fill="#4CAF50"/>
+                    <rect x="15" y="15" width="10" height="10" fill="#388E3C"/>
+                    <rect x="25" y="15" width="10" height="10" fill="#8BC34A"/>
+                    <rect x="5" y="25" width="10" height="10" fill="#388E3C"/>
+                    <rect x="15" y="25" width="10" height="10" fill="#8BC34A"/>
+                    <rect x="25" y="25" width="10" height="10" fill="#4CAF50"/>
+                </svg>
+                <h1>MEDIATEXTUR</h1>
+            </div>
+            <h2>Content Factory</h2>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <!-- Initial Form -->
+                <form id="contentForm">
+                    <div class="form-section" id="formSection">
+                        <div class="form-header">
+                            <h3>Content-Generierung</h3>
+                            <button type="button" class="more-btn" id="moreBtn">
+                                MEHR
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">Titel *</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="promptSelect">Prompt-Vorlage</label>
+                            <select id="promptSelect" name="promptSelect">
+                                <option value="">Wählen Sie eine Vorlage...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="topic">Thema</label>
+                            <input type="text" id="topic" name="topic" placeholder="z.B. Digitales Marketing">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="keywords">Keywords</label>
+                            <input type="text" id="keywords" name="keywords" placeholder="SEO, SEA, Webdesign">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="targetAudience">Zielgruppe</label>
+                            <input type="text" id="targetAudience" name="targetAudience" placeholder="z.B. KMU in der Region Augsburg">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tone">Tonalität</label>
+                            <select id="tone" name="tone">
+                                <option value="">Standard</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additionalContext">Zusätzlicher Kontext</label>
+                            <textarea id="additionalContext" name="additionalContext" rows="4" placeholder="Weitere Informationen oder spezielle Anforderungen..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Content generieren</span>
+                                <div class="loader"></div>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Result with Edit Options -->
+                <div id="result" class="result-container">
+                    <h3>Generierter Content</h3>
+                    <div class="result-content" id="resultContent" contenteditable="true"></div>
+                    <div class="result-actions">
+                        <button class="btn btn-success" id="saveToNotion">Speichern</button>
+                        <button class="btn btn-cancel" id="cancelEdit">Abbrechen</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Erweiterte Einstellungen</h3>
+            <button class="close-sidebar" id="closeSidebar">×</button>
+        </div>
+        <div class="sidebar-content">
+            <!-- System Prompt Section -->
+            <div class="sidebar-section">
+                <h4>System Prompt</h4>
+                <textarea id="systemPrompt" placeholder="Geben Sie den System-Prompt für GPT ein...">Du bist ein professioneller Content-Ersteller für Mediatextur, spezialisiert auf SEO, SEA und Webentwicklung.</textarea>
+            </div>
+
+            <!-- Dropdown Editor Section -->
+            <div class="sidebar-section">
+                <h4>Dropdown Editor - Tonalität</h4>
+                <div class="dropdown-editor" id="dropdownEditor">
+                    <div class="dropdown-item">
+                        <input type="text" value="Professionell" readonly>
+                        <button onclick="removeDropdownItem(this)">×</button>
+                    </div>
+                    <div class="dropdown-item">
+                        <input type="text" value="Freundlich" readonly>
+                        <button onclick="removeDropdownItem(this)">×</button>
+                    </div>
+                    <div class="dropdown-item">
+                        <input type="text" value="Informativ" readonly>
+                        <button onclick="removeDropdownItem(this)">×</button>
+                    </div>
+                    <div class="dropdown-item">
+                        <input type="text" value="Überzeugend" readonly>
+                        <button onclick="removeDropdownItem(this)">×</button>
+                    </div>
+                </div>
+                <button class="add-dropdown-item" onclick="addDropdownItem()">+ Neuen Wert hinzufügen</button>
+            </div>
+
+            <!-- Save Settings -->
+            <div class="sidebar-section">
+                <button class="btn btn-primary" onclick="saveSettings()">Einstellungen speichern</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

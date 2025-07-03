@@ -4,6 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { ConfigService } from '@nestjs/config';
 import { CONFIG } from './app/configuration/configuration.enum';
 import { ValidationPipe } from '@nestjs/common';
+import { join } from 'path';
 
 async function bootstrap(): Promise<void> {
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -15,6 +16,7 @@ async function bootstrap(): Promise<void> {
     });
     app.useGlobalPipes(new ValidationPipe());
     app.useBodyParser('json', { limit: '16mb' });
+    app.useStaticAssets(join(__dirname, '..', 'public'));
 
     if (configuration.get<string>(CONFIG.NODE_ENV) === 'dev') {
         const sw = await import('@nestjs/swagger');
