@@ -251,7 +251,7 @@ class FormManager {
         APP_STATE.promptTemplates.forEach((template, index) => {
             const item = document.createElement('div');
             item.className = 'template-item';
-    
+
             item.innerHTML = `
                 <div class="template-item__header">
                     <input type="text" class="template-item__name" value="${template.name}" data-index="${index}" />
@@ -259,7 +259,7 @@ class FormManager {
                 </div>
                 <textarea class="template-item__textarea" data-index="${index}" rows="4">${template.content}</textarea>
             `;
-    
+
             DOM.templateEditor.appendChild(item);
         });
 
@@ -421,7 +421,6 @@ class FormManager {
             this.showResult(result.content);
 
             NotificationManager.show(result.message || 'Content generated successfully!');
-
         } catch (error) {
             if (error.name !== 'AbortError') {
                 NotificationManager.show(error.message || 'Error generating content', 'error');
