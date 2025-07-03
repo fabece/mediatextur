@@ -5,8 +5,8 @@ on:
     branches: [ main ]
 
 env:
-  PROJECT_NAME: semora
-  CONTAINER_NAME: semora-backend-production
+  PROJECT_NAME: mediatextur
+  CONTAINER_NAME: mediatextur-backend-production
   PORT: 3100
   NODE_ENV: production
 

@@ -21,8 +21,8 @@ async function bootstrap(): Promise<void> {
     if (configuration.get<string>(CONFIG.NODE_ENV) === 'dev') {
         const sw = await import('@nestjs/swagger');
         const config = new sw.DocumentBuilder()
-            .setTitle('Semora')
-            .setDescription('The Semora API description')
+            .setTitle('mediatextur')
+            .setDescription('The Mediatextur API description')
             .setVersion('0.1')
             .addTag('Endpoints')
             .build();
