@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { GenerateContentDto } from '../dto/generate-content.dto';
-import { SaveContentDto } from '../dto/save-content.dto';
+import { IGenerateContentDto } from '../dto/generate-content.dto';
+import { ISaveContentDto } from '../dto/save-content.dto';
 import { INotionSettingsDto } from '../dto/notion-setting.dto';
-import { MessageReponseDto } from '../dto/message-response-dto';
+import { IMessageReponseDto } from '../dto/message-response-dto';
 
 // TODO:
 @Injectable()
@@ -50,7 +50,7 @@ The output should be suitable for direct publication on websites, blogs, or soci
         }
     }
 
-    async saveSettingsToNotion(data: INotionSettingsDto): Promise<MessageReponseDto> {
+    async saveSettingsToNotion(data: INotionSettingsDto): Promise<IMessageReponseDto> {
         try {
             console.log(data);
             return { message: 'Settings saved successfully!' };
@@ -61,7 +61,7 @@ The output should be suitable for direct publication on websites, blogs, or soci
         }
     }
 
-    async saveContentToNotion(data: SaveContentDto): Promise<MessageReponseDto> {
+    async saveContentToNotion(data: ISaveContentDto): Promise<IMessageReponseDto> {
         try {
             console.log(data);
             return { message: 'Content saved to Notion successfully!' };
@@ -72,7 +72,7 @@ The output should be suitable for direct publication on websites, blogs, or soci
         }
     }
 
-    async generateContent(data: GenerateContentDto): Promise<MessageReponseDto> {
+    async generateContent(data: IGenerateContentDto): Promise<IMessageReponseDto> {
         try {
             console.log(data);
             return {

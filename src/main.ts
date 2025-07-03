@@ -28,7 +28,7 @@ async function bootstrap(): Promise<void> {
             .build();
 
         const document = sw.SwaggerModule.createDocument(app, config);
-        sw.SwaggerModule.setup('swagger', app, document);
+        sw.SwaggerModule.setup('api/v1/swagger', app, document);
     }
 
     await app.listen(configuration.get<number>(CONFIG.PORT));

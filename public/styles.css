@@ -1,6 +1,6 @@
 /* ===========================
-   CSS Variables & Theme System
-   =========================== */
+    CSS Variables & Theme System
+=========================== */
 
 :root {
     /* Colors - Light Theme */
@@ -168,8 +168,8 @@ h4 {
 }
 
 /* ===========================
-     Layout Components
-     =========================== */
+    Layout Components
+=========================== */
 
 .container {
     max-width: var(--container-max-width);
@@ -271,8 +271,8 @@ h4 {
 }
 
 /* ===========================
-     Form Components
-     =========================== */
+    Form Components
+=========================== */
 
 .form-container {
     background: var(--color-bg-card);
@@ -474,8 +474,8 @@ h4 {
 }
 
 /* ===========================
-     Result Component
-     =========================== */
+    Result Component
+=========================== */
 
 .result {
     background: var(--color-bg-card);
@@ -692,8 +692,8 @@ h4 {
 }
 
 /* ===========================
-     Overlay
-     =========================== */
+    Overlay
+=========================== */
 
 .overlay {
     position: fixed;
@@ -714,8 +714,8 @@ h4 {
 }
 
 /* ===========================
-     Notification Component
-     =========================== */
+    Notification Component
+=========================== */
 
 .notification {
     position: fixed;
@@ -751,8 +751,8 @@ h4 {
 }
 
 /* ===========================
-     Loading Spinner
-     =========================== */
+    Loading Spinner
+=========================== */
 
 .spinner {
     display: none;
@@ -778,8 +778,8 @@ h4 {
 }
 
 /* ===========================
-     Scrollbar Styling
-     =========================== */
+    Scrollbar Styling
+=========================== */
 
 /* For Webkit browsers */
 ::-webkit-scrollbar {
@@ -809,8 +809,8 @@ h4 {
 }
 
 /* ===========================
-     Utility Classes
-     =========================== */
+    Utility Classes
+=========================== */
 
 .sr-only {
     position: absolute;
@@ -849,8 +849,8 @@ h4 {
 }
 
 /* ===========================
-     Responsive Design
-     =========================== */
+    Responsive Design
+=========================== */
 
 /* Tablet - 768px */
 @media (max-width: 48rem) {
@@ -947,8 +947,8 @@ h4 {
 }
 
 /* ===========================
-     Print Styles
-     =========================== */
+    Print Styles
+=========================== */
 
 @media print {
     body {
@@ -1047,8 +1047,8 @@ h4 {
 }
 
 /* ===========================
-     Animation Classes
-     =========================== */
+    Animation Classes
+=========================== */
 
 .fade-in {
     animation: fadeIn 0.3s ease-in-out;

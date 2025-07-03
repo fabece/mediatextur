@@ -1,6 +1,6 @@
-import { GenerateContentDto } from './generate-content.dto';
+import { IGenerateContentDto } from './generate-content.dto';
 
-export class SaveContentDto {
+export interface ISaveContentDto {
     content: string;
-    metadata: GenerateContentDto;
+    metadata: IGenerateContentDto;
 }

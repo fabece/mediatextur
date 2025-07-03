@@ -1,4 +1,4 @@
-export class MessageReponseDto {
+export interface IMessageReponseDto {
     message: string;
     content?: string;
 }

@@ -1,4 +1,4 @@
-export class GenerateContentDto {
+export interface IGenerateContentDto {
     systemPrompt: string;
     title: string;
     promptSelect: string;
