@@ -1,155 +1,304 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mediatextur Content Factory - AI-powered content generation tool">
     <title>Mediatextur Content Factory</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Overlay for sidebar -->
     <div class="overlay" id="overlay"></div>
-    
+
+    <!-- Main Container -->
     <div class="container" id="container">
-        <header>
-            <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40">
-                    <rect x="5" y="5" width="10" height="10" fill="#8BC34A"/>
-                    <rect x="15" y="5" width="10" height="10" fill="#4CAF50"/>
-                    <rect x="25" y="5" width="10" height="10" fill="#388E3C"/>
-                    <rect x="5" y="15" width="10" height="10" fill="#4CAF50"/>
-                    <rect x="15" y="15" width="10" height="10" fill="#388E3C"/>
-                    <rect x="25" y="15" width="10" height="10" fill="#8BC34A"/>
-                    <rect x="5" y="25" width="10" height="10" fill="#388E3C"/>
-                    <rect x="15" y="25" width="10" height="10" fill="#8BC34A"/>
-                    <rect x="25" y="25" width="10" height="10" fill="#4CAF50"/>
-                </svg>
-                <h1>MEDIATEXTUR</h1>
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header__content">
+                <div class="logo">
+                    <svg class="logo__icon" width="40" height="40" viewBox="0 0 40 40" aria-label="Mediatextur Logo">
+                        <rect x="5" y="5" width="10" height="10" fill="var(--color-primary)"/>
+                        <rect x="15" y="5" width="10" height="10" fill="var(--color-primary-dark)"/>
+                        <rect x="25" y="5" width="10" height="10" fill="var(--color-primary-darker)"/>
+                        <rect x="5" y="15" width="10" height="10" fill="var(--color-primary-dark)"/>
+                        <rect x="15" y="15" width="10" height="10" fill="var(--color-primary-darker)"/>
+                        <rect x="25" y="15" width="10" height="10" fill="var(--color-primary)"/>
+                        <rect x="5" y="25" width="10" height="10" fill="var(--color-primary-darker)"/>
+                        <rect x="15" y="25" width="10" height="10" fill="var(--color-primary)"/>
+                        <rect x="25" y="25" width="10" height="10" fill="var(--color-primary-dark)"/>
+                    </svg>
+                    <h1 class="logo__text">MEDIATEXTUR</h1>
+                </div>
+                <h2 class="header__subtitle">Content Factory</h2>
             </div>
-            <h2>Content Factory</h2>
+            
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <!-- Sun -->
+                <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <!-- Moon -->
+                <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
         </header>
 
-        <main>
-            <div class="form-container">
-                <!-- Initial Form -->
-                <form id="contentForm">
-                    <div class="form-section" id="formSection">
-                        <div class="form-header">
-                            <h3>Content-Generierung</h3>
-                            <button type="button" class="more-btn" id="moreBtn">
-                                MEHR
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="title">Titel *</label>
-                            <input type="text" id="title" name="title" required>
-                        </div>
+        <!-- Main Content -->
+        <main class="main">
+            <div class="content-wrapper">
+                <!-- Form Container -->
+                <div class="form-container" id="formContainer">
+                    <form class="form" id="contentForm">
+                        <div class="form__section" id="formSection">
+                            <div class="form__header">
+                                <h3 class="form__title">Content Generation</h3>
+                                <button type="button" class="btn btn--ghost btn--icon" id="moreBtn" aria-label="More settings">
+                                    <span>SETTINGS</span>
+                                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <!-- Form Fields -->
+                            <div class="form__body">
+                                <div class="form__group">
+                                    <label class="form__label" for="title">
+                                        Title <span class="form__required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form__input" 
+                                        id="title" 
+                                        name="title" 
+                                        required
+                                        placeholder="Enter content title"
+                                    >
+                                </div>
 
-                        <div class="form-group">
-                            <label for="promptSelect">Prompt-Vorlage</label>
-                            <select id="promptSelect" name="promptSelect">
-                                <option value="">Wählen Sie eine Vorlage...</option>
-                            </select>
-                        </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="promptSelect">
+                                        Prompt Template <span class="form__required">*</span>
+                                    </label>
+                                    <select class="form__select" id="promptSelect" name="promptSelect" required>
+                                        <option value="">Select a template...</option>
+                                    </select>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="topic">Thema</label>
-                            <input type="text" id="topic" name="topic" placeholder="z.B. Digitales Marketing">
-                        </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="topic">Topic</label>
+                                    <input 
+                                        type="text" 
+                                        class="form__input" 
+                                        id="topic" 
+                                        name="topic" 
+                                        placeholder="e.g., Digital Marketing"
+                                    >
+                                </div>
 
-                        <div class="form-group">
-                            <label for="keywords">Keywords</label>
-                            <input type="text" id="keywords" name="keywords" placeholder="SEO, SEA, Webdesign">
-                        </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="keywords">Keywords</label>
+                                    <input 
+                                        type="text" 
+                                        class="form__input" 
+                                        id="keywords" 
+                                        name="keywords" 
+                                        placeholder="SEO, SEA, Web Design"
+                                    >
+                                </div>
 
-                        <div class="form-group">
-                            <label for="targetAudience">Zielgruppe</label>
-                            <input type="text" id="targetAudience" name="targetAudience" placeholder="z.B. KMU in der Region Augsburg">
-                        </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="targetAudience">Target Audience</label>
+                                    <input 
+                                        type="text" 
+                                        class="form__input" 
+                                        id="targetAudience" 
+                                        name="targetAudience" 
+                                        placeholder="e.g., SMBs in the Augsburg region"
+                                    >
+                                </div>
 
-                        <div class="form-group">
-                            <label for="tone">Tonalität</label>
-                            <select id="tone" name="tone">
-                                <option value="">Standard</option>
-                            </select>
-                        </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="tone">Tone</label>
+                                    <select class="form__select" id="tone" name="tone">
+                                        <option value="">Default</option>
+                                    </select>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="additionalContext">Zusätzlicher Kontext</label>
-                            <textarea id="additionalContext" name="additionalContext" rows="4" placeholder="Weitere Informationen oder spezielle Anforderungen..."></textarea>
-                        </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="additionalContext">Additional Context</label>
+                                    <textarea 
+                                        class="form__textarea" 
+                                        id="additionalContext" 
+                                        name="additionalContext" 
+                                        rows="4" 
+                                        placeholder="Any additional information or special requirements..."
+                                    ></textarea>
+                                </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">
-                                <span class="btn-text">Content generieren</span>
-                                <div class="loader"></div>
-                            </button>
+                                <div class="form__actions">
+                                    <button type="submit" class="btn btn--primary btn--large">
+                                        <span class="btn__text">Generate Content</span>
+                                        <div class="spinner" aria-hidden="true">
+                                            <div class="spinner__circle"></div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Result Container -->
+                <div class="result" id="resultContainer" style="display: none;">
+                    <div class="result__header">
+                        <h3 class="result__title">Generated Content</h3>
+                        <div class="result__meta">
+                            <span class="result__date" id="resultDate"></span>
                         </div>
                     </div>
-                </form>
-
-                <!-- Result with Edit Options -->
-                <div id="result" class="result-container">
-                    <h3>Generierter Content</h3>
-                    <div class="result-content" id="resultContent" contenteditable="true"></div>
-                    <div class="result-actions">
-                        <button class="btn btn-success" id="saveToNotion">Speichern</button>
-                        <button class="btn btn-cancel" id="cancelEdit">Abbrechen</button>
+                    
+                    <div class="result__body">
+                        <div 
+                            class="result__content" 
+                            id="resultContent" 
+                            contenteditable="true"
+                            role="textbox"
+                            aria-label="Editable content"
+                        ></div>
+                    </div>
+                    
+                    <div class="result__actions">
+                        <button class="btn btn--primary" id="saveToNotion">
+                            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/>
+                                <polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Save
+                        </button>
+                        <button class="btn btn--secondary" id="regenerateContent">
+                            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+                            </svg>
+                            Regenerate
+                        </button>
+                        <button class="btn btn--danger" id="cancelEdit">
+                            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
 
-        <div class="notification" id="notification"></div>
+        <!-- Notification -->
+        <div class="notification" id="notification" role="alert" aria-live="polite"></div>
     </div>
 
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h3>Erweiterte Einstellungen</h3>
-            <button class="close-sidebar" id="closeSidebar">×</button>
+    <aside class="sidebar" id="sidebar" aria-label="Advanced settings">
+        <div class="sidebar__header">
+            <h3 class="sidebar__title">Advanced Settings</h3>
+            <button 
+                class="btn btn--ghost btn--icon" 
+                id="closeSidebar" 
+                aria-label="Close sidebar"
+            >
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
         </div>
-        <div class="sidebar-content">
-            <!-- System Prompt Section -->
-            <div class="sidebar-section">
-                <h4>System Prompt</h4>
-                <textarea id="systemPrompt" placeholder="Geben Sie den System-Prompt für GPT ein...">Du bist ein professioneller Content-Ersteller für Mediatextur, spezialisiert auf SEO, SEA und Webentwicklung.</textarea>
+        
+        <div class="sidebar__content" id="settingsLoader" style="display: none;">
+            <div class="spinner" aria-hidden="true">
+                <div class="spinner__circle"></div>
             </div>
+        </div>
+
+        <div class="sidebar__content" id="sidebarContent">
+            <!-- System Prompt Section -->
+            <section class="sidebar__section">
+                <h4 class="sidebar__section-title">System Prompt</h4>
+                <textarea 
+                    class="sidebar__textarea" 
+                    id="systemPrompt" 
+                    placeholder="Enter the system prompt for GPT..."
+                    aria-label="System prompt configuration"
+                >You are a professional content creator for Mediatextur, specializing in SEO, SEA, and web development.</textarea>
+            </section>
+
+            <!-- Prompt Templates Section -->
+            <section class="sidebar__section">
+                <h4 class="sidebar__section-title">Prompt Templates</h4>
+
+                <p class="form__hint">
+                    Available placeholders you can use inside templates:
+                    <code>{title}</code>,
+                    <code>{topic}</code>,
+                    <code>{keywords}</code>,
+                    <code>{audience}</code>,
+                    <code>{tone}</code>,
+                    <code>{context}</code>
+                </p>
+
+                <div class="template-editor" id="templateEditor">
+                    <!-- Dropdown items will be dynamically generated -->
+                </div>
+            
+                <button class="btn btn--outline btn--small btn--full" id="addTemplateBtn">
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    Add New Template
+                </button>
+            </section>
 
             <!-- Dropdown Editor Section -->
-            <div class="sidebar-section">
-                <h4>Dropdown Editor - Tonalität</h4>
+            <section class="sidebar__section">
+                <h4 class="sidebar__section-title">Tone Options</h4>
                 <div class="dropdown-editor" id="dropdownEditor">
-                    <div class="dropdown-item">
-                        <input type="text" value="Professionell" readonly>
-                        <button onclick="removeDropdownItem(this)">×</button>
-                    </div>
-                    <div class="dropdown-item">
-                        <input type="text" value="Freundlich" readonly>
-                        <button onclick="removeDropdownItem(this)">×</button>
-                    </div>
-                    <div class="dropdown-item">
-                        <input type="text" value="Informativ" readonly>
-                        <button onclick="removeDropdownItem(this)">×</button>
-                    </div>
-                    <div class="dropdown-item">
-                        <input type="text" value="Überzeugend" readonly>
-                        <button onclick="removeDropdownItem(this)">×</button>
-                    </div>
+                    <!-- Dropdown items will be dynamically generated -->
                 </div>
-                <button class="add-dropdown-item" onclick="addDropdownItem()">+ Neuen Wert hinzufügen</button>
-            </div>
+                <button class="btn btn--outline btn--small btn--full" id="addDropdownItem">
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add New Option
+                </button>
+            </section>
 
             <!-- Save Settings -->
-            <div class="sidebar-section">
-                <button class="btn btn-primary" onclick="saveSettings()">Einstellungen speichern</button>
-            </div>
+            <section class="sidebar__section">
+                <button class="btn btn--primary btn--full" id="saveSettings">
+                    Save Settings
+                </button>
+            </section>
         </div>
-    </div>
+    </aside>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

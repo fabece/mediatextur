@@ -5,6 +5,7 @@ import { ConfigurationValidation } from './app/configuration/configuration.valid
 import { HealthController } from './app/controllers/health.controller';
 import { AppController } from './app/controllers/app.controller';
 import { ApiController } from './app/controllers/api.controller';
+import { ContentService } from './app/services/content.service';
 
 @Module({
     imports: [
@@ -17,6 +18,6 @@ import { ApiController } from './app/controllers/api.controller';
         }),
     ],
     controllers: [AppController, ApiController, HealthController],
-    providers: [],
+    providers: [ContentService],
 })
 export class AppModule {}
